@@ -4,6 +4,7 @@ import Layout from './Layout'
 import MapCard from '../components/Main/MapCard'
 import ServiceFlow from '../components/Main/ServiceFlow'
 import FasilitasSection from '../components/Main/FasilitasSection'
+import BeritaSection from '../components/Main/BeritaSection'
 function MainPage() {
   return (
     <Layout>
@@ -12,6 +13,8 @@ function MainPage() {
         <ServiceFlow/>
         <FasilitasSection/>
         <MapCard/>
+
+        <BeritaSection/>
     </Layout>
   )
 }

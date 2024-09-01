@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './maps-api.css'
+import { Link } from 'react-router-dom';
 
 function MapCard() {
   return (
@@ -34,7 +35,7 @@ function MapCard() {
                 Timur, Indonesia dengan kode pos 85226. Kelurahan ini memiliki 4 RW (Rukun Warga) yang terbagi atas 14 RT
                 (Rukun Tetangga).
               </p>
-              <a href="index.html" className="btn btn-secondary">Kembali ke beranda</a>
+              <Link to={'/'} className="btn btn-secondary">Kembali ke beranda</Link>
             </div>
           </div>
         </div>

@@ -57,7 +57,7 @@ function NavbarComp() {
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdownProfile">
                   <li>
-                    <Link to="/sejarah_kel" className="dropdown-item">
+                    <Link to="/sejarah_kelurahan" className="dropdown-item">
                       <img
                         src="https://img.icons8.com/ios/16/000000/history-book.png"
                         alt="History"
@@ -89,7 +89,7 @@ function NavbarComp() {
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdownGov">
                   <li>
-                    <Link to="/struktur_org" className="dropdown-item">
+                    <Link to="/struktur_organisasi" className="dropdown-item">
                       <img
                         src="https://img.icons8.com/pastel-glyph/16/000000/parallel-tasks.png"
                         alt="Structure"
