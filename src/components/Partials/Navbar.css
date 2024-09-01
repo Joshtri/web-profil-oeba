@@ -1,0 +1,46 @@
+styles.css
+.container-fluid .navbar-brand img {
+    width: 20vw;
+}
+
+@media (max-width: 767px) {
+    .container-fluid .navbar-brand img {
+        width: 80vw;
+    }
+}
+
+.navbar-brand img {
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.1);
+}
+
+.nav-item a {
+    transition: color 0.3s ease;
+}
+
+.nav-item a:hover {
+    color: #bd9c95;
+}
+
+.nav-link.active .hover-effect {
+    position: relative;
+    text-decoration: none;
+}
+
+.nav-link.active .hover-effect::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 3.4px;
+    bottom: -3px;
+    background: #F3F0CA;
+    transition: width 0.3s ease;
+}
+
+.nav-link.active:hover .hover-effect::after {
+    width: 100%;
+}
