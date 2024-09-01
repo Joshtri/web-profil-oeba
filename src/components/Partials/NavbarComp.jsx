@@ -22,7 +22,7 @@ function NavbarComp() {
       </nav>
 
       {/* Second Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+      <nav className="navbar navbar-expand-lg navbar-dark shadow-sm" style={{backgroundColor: '#607EAA'}}>
         <div className="container-fluid">
           <button
             className="navbar-toggler"

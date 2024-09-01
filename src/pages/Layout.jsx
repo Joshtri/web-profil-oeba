@@ -5,7 +5,7 @@ function Layout({children}) {
   return (
     <React.Fragment>
         <NavbarComp/>
-        <main className='container border border-danger'>
+        <main className='container mt-5'>
             {children}
         </main>
     </React.Fragment>
