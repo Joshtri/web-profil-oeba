@@ -127,12 +127,14 @@ function NavbarComp() {
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdownOther">
                   <li>
                     <Link to="/pengumuman" className="dropdown-item">
-                      <img
-                        src="https://img.icons8.com/pastel-glyph/16/000000/parallel-tasks.png"
-                        alt="Announcements"
-                      />
                       Pengumuman & Artikel
                     </Link>
+
+                    <Link to="/galeri_kegiatan" className="dropdown-item">
+                      Galeri Kelurahan
+                      
+                    </Link>
+
                   </li>
                 </ul>
               </li>
