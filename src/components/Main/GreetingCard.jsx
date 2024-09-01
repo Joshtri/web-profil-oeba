@@ -4,6 +4,8 @@ import bagianDalamImg from '../../assets/depan bagian dalam.webp';
 import bagianDepanImg from '../../assets/depan kantor lurah.webp';
 import boardImg from '../../assets/boardoebalandscape.webp';
 
+import mapsBlueImg from '../../assets/maps_blue.webp'
+
 function GreetingCard() {
   return (
     <div className="row m-0 mt-3">
@@ -107,13 +109,13 @@ function GreetingCard() {
 
         <div className="d-flex align-items-center">
           <img
-            src="public/images/mapss blue.png"
+            src={mapsBlueImg}
             alt=""
             style={{ width: '50px', height: 'auto' }}
             className="img-fluid px-md-0 pt-2 maps cursor-pointer"
           />
           <span className="ms-3" style={{ fontFamily: 'Arial', fontSize: '18px' }}>
-            <a href="maps.html" style={{ fontFamily: 'Barlow' }} className="hover-maps fade-in-17s">
+            <a href="maps.html" style={{ fontFamily: 'Candara' }} className="hover-maps fade-in-17s">
               <b>LOKASI KELURAHAN OEBA</b>
             </a>
           </span>

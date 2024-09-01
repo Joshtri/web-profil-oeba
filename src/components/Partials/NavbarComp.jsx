@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 
-import kotaKupangLogo from '../../assets/kota_kupang_logo.webp'
+import kotaKupangLogo from '../../assets/kota_kupang_logo.webp';
 
 function NavbarComp() {
   return (
@@ -9,14 +10,14 @@ function NavbarComp() {
       {/* First Navbar */}
       <nav className="navbar navbar-expand-lg px-md-5" style={{ backgroundColor: '#061952' }}>
         <div className="container-fluid mt-2 mb-2 d-flex justify-content-between align-items-center">
-          <a className="navbar-brand" href="#">
+          <Link to="/" className="navbar-brand">
             <img
               src={kotaKupangLogo}
               alt="Logo"
               className="rounded float-start"
               style={{ maxHeight: '100px' }}
             />
-          </a>
+          </Link>
           <span className="text-white fs-5">Kelurahan Oeba</span>
         </div>
       </nav>
@@ -39,9 +40,9 @@ function NavbarComp() {
           <div className="collapse navbar-collapse" id="navbarMenu">
             <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" href="index.html">
+                <Link to="/" className="nav-link active">
                   Beranda
-                </a>
+                </Link>
               </li>
               <li className="nav-item dropdown">
                 <a
@@ -56,22 +57,22 @@ function NavbarComp() {
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdownProfile">
                   <li>
-                    <a className="dropdown-item" href="sejarah_kel.html">
+                    <Link to="/sejarah_kel" className="dropdown-item">
                       <img
                         src="https://img.icons8.com/ios/16/000000/history-book.png"
                         alt="History"
                       />
                       Sejarah Kelurahan
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="index.html#sectionFasilitas">
+                    <Link to="/#sectionFasilitas" className="dropdown-item">
                       <img
                         src="https://img.icons8.com/external-kmg-design-detailed-outline-kmg-design/16/000000/external-potential-business-strategy-kmg-design-detailed-outline-kmg-design.png"
                         alt="Facilities"
                       />
                       Potensi & Fasilitas
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </li>
@@ -88,29 +89,29 @@ function NavbarComp() {
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdownGov">
                   <li>
-                    <a className="dropdown-item" href="struktur_org.html">
+                    <Link to="/struktur_org" className="dropdown-item">
                       <img
                         src="https://img.icons8.com/pastel-glyph/16/000000/parallel-tasks.png"
                         alt="Structure"
                       />
                       Struktur Pemerintahan
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="index.html#Sectionalurpelayanan">
+                    <Link to="/#Sectionalurpelayanan" className="dropdown-item">
                       <img
                         src="https://img.icons8.com/pastel-glyph/16/000000/parallel-tasks.png"
                         alt="Services"
                       />
                       Alur Pelayanan
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="maps.html">
+                <Link to="/maps" className="nav-link">
                   Peta
-                </a>
+                </Link>
               </li>
               <li className="nav-item dropdown">
                 <a
@@ -125,13 +126,13 @@ function NavbarComp() {
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdownOther">
                   <li>
-                    <a className="dropdown-item" href="pengumuman.html">
+                    <Link to="/pengumuman" className="dropdown-item">
                       <img
                         src="https://img.icons8.com/pastel-glyph/16/000000/parallel-tasks.png"
                         alt="Announcements"
                       />
                       Pengumuman & Artikel
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </li>
@@ -151,10 +152,10 @@ function NavbarComp() {
               Sekilas Info | Kantor Kelurahan Oeba membuka pelayanan publik pada
               hari Senin - Kamis pukul 07.30 - 16:00 WITA & Jumat pukul 07.30 -
               16.30 WITA
-              <a href="#" className="text-primary" title="Baca Selengkapnya">
+              <Link to="#" className="text-primary" title="Baca Selengkapnya">
                 {' '}
                 -- selengkapnya...
-              </a>
+              </Link>
             </span>
           </marquee>
         </div>
