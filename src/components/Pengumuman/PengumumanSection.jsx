@@ -9,7 +9,7 @@ function PengumumanSection() {
   useEffect(() => {
     const fetchPengumuman = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/v1/pengumuman');
+        const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/pengumuman`);
         setAnnouncements(response.data);
         setLoading(false);
       } catch (err) {

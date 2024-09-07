@@ -9,7 +9,7 @@ function GaleriKegiatan() {
   useEffect(() => {
     const fetchKegiatan = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/v1/kegiatan');
+        const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/kegiatan`);
         setActivities(response.data);
         setLoading(false);
       } catch (err) {
