@@ -115,7 +115,7 @@ function GreetingCard() {
             className="img-fluid px-md-0 pt-2 maps cursor-pointer"
           />
           <span className="ms-3" style={{ fontFamily: 'Arial', fontSize: '18px' }}>
-            <a href="maps.html" style={{ fontFamily: 'Candara' }} className="hover-maps fade-in-17s">
+            <a href="https://maps.app.goo.gl/gHjfH7YWimN5b9RA9" style={{ fontFamily: 'Candara' }} className="hover-maps fade-in-17s">
               <b>LOKASI KELURAHAN OEBA</b>
             </a>
           </span>
