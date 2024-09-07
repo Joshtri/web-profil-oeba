@@ -75,12 +75,14 @@ function NavbarComp() {
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdownProfile">
                   <li>
                     <RouterLink to="/sejarah_kelurahan" className="dropdown-item">
-                      Sejarah Kelurahan
+                      <img src="https://img.icons8.com/ios/16/000000/history-book.png" />
+                        &nbsp;Sejarah Kelurahan
                     </RouterLink>
                   </li>
                   <li>
                     <span onClick={() => handleScrollOrNavigate('sectionFasilitas')} className="dropdown-item" style={{ cursor: 'pointer' }}>
-                      Potensi & Fasilitas
+                      <img src="https://img.icons8.com/external-kmg-design-detailed-outline-kmg-design/16/000000/external-potential-business-strategy-kmg-design-detailed-outline-kmg-design.png" />
+                        &nbsp;Potensi & Fasilitas
                     </span>
                   </li>
                 </ul>
@@ -99,12 +101,18 @@ function NavbarComp() {
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdownGov">
                   <li>
                     <RouterLink to="/struktur_organisasi" className="dropdown-item">
-                      Struktur Pemerintahan
+                     <img src="https://img.icons8.com/pastel-glyph/16/000000/parallel-tasks.png" />
+                     <span>
+                        &nbsp;Struktur Pemerintahan
+                     </span>
                     </RouterLink>
                   </li>
                   <li>
                     <span onClick={() => handleScrollOrNavigate('Sectionalurpelayanan')} className="dropdown-item" style={{ cursor: 'pointer' }}>
-                      Alur Pelayanan
+                      <img src="https://img.icons8.com/pastel-glyph/16/000000/parallel-tasks.png" />
+                      
+                      
+                        &nbsp;Alur Pelayanan
                     </span>
                   </li>
                 </ul>
@@ -128,14 +136,17 @@ function NavbarComp() {
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdownOther">
                   <li>
                     <RouterLink to="/pengumuman" className="dropdown-item">
+                      <img src="https://img.icons8.com/?size=16&id=z0XTU45LTqNE&format=png&color=000000" />
                       Pengumuman
                     </RouterLink>
                     <RouterLink to="/galeri_kegiatan" className="dropdown-item">
+                      <img src="https://img.icons8.com/?size=16&id=z0XTU45LTqNE&format=png&color=000000" />
                       Galeri Kelurahan
                     </RouterLink>
 
                     <li>
                       <span onClick={() => handleScrollOrNavigate('sectionBerita')} className="dropdown-item" style={{ cursor: 'pointer' }}>
+                        <img src="https://img.icons8.com/?size=16&id=z0XTU45LTqNE&format=png&color=000000" />
                         Berita Terkini
                       </span>
                     </li>
