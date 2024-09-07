@@ -25,7 +25,6 @@ function FasilitasSection() {
         <div className="card">
           <h1 className="font-title-costum text-center text-uppercase">Fasilitas & potensi</h1>
           <div className="col-md-9 mx-auto">
-            <p>INI SENDI MUNCUL LAGI</p>
             <p style={{ textAlign: 'justify' }}>
               Kelurahan Oeba merupakan salah satu pusat keramaian di Kota Kupang, dengan berbagai fasilitas umum seperti
               Stadion Merdeka yang meskipun cukup tua, tetap menyediakan sarana olahraga untuk atletik dan sepak bola.
