@@ -3,7 +3,8 @@ import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
 import { Link as ScrollLink, scroller } from 'react-scroll';
 import './Navbar.css';
 
-import kotaKupangLogo from '../../assets/kota_kupang_logo.webp';
+// import kotaKupangLogo from '../../assets/kota_kupang_logo.webp';
+import logoOeba from '../../assets/KEL_OEBA.webp'
 
 function NavbarComp() {
   const location = useLocation(); // Get the current location
@@ -29,18 +30,17 @@ function NavbarComp() {
         <div className="container-fluid mt-2 mb-2 d-flex justify-content-between align-items-center">
           <RouterLink to="/" className="navbar-brand">
             <img
-              src={kotaKupangLogo}
+              src={logoOeba}
               alt="Logo"
               className="rounded float-start"
-              style={{ maxHeight: '100px' }}
+              style={{ maxHeight: '200px', maxWidth: '200px', width: 'auto', height: 'auto' }}
             />
           </RouterLink>
-          <span className="text-white fs-5">Kelurahan Oeba</span>
         </div>
       </nav>
 
       {/* Second Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-dark shadow-sm" style={{backgroundColor: '#607EAA'}}>
+      <nav className="navbar navbar-expand-lg navbar-dark shadow-sm" style={{ backgroundColor: '#607EAA' }}>
         <div className="container-fluid">
           <button
             className="navbar-toggler"
@@ -147,14 +147,14 @@ function NavbarComp() {
         </div>
       </nav>
       <div class="card mb-1 z-index-1">
-          <marquee onmouseover="this.stop()" onmouseout="this.start()" class="shadow shadow-sm">
-              <div class="teks_berjalan">
-                  <span class="teks small">Sekilas Info | Kantor Kelurahan Oeba membuka pelayanan publik pada hari Senin -
-                      Kamis pukul 07.30 - 16:00 WITA & Jumat pukul 07.30 - 16.30 WITA <a href="#" rel="noopener noreferrer"
-                          title="Baca Selengkapnya">-- selengkapnya...</a>
-                  </span>
-              </div>
-          </marquee>
+        <marquee onmouseover="this.stop()" onmouseout="this.start()" class="shadow shadow-sm">
+          <div class="teks_berjalan">
+            <span class="teks small">Sekilas Info | Kantor Kelurahan Oeba membuka pelayanan publik pada hari Senin -
+              Kamis pukul 07.30 - 16:00 WITA & Jumat pukul 07.30 - 16.30 WITA <a href="#" rel="noopener noreferrer"
+                title="Baca Selengkapnya">-- selengkapnya...</a>
+            </span>
+          </div>
+        </marquee>
       </div>
     </>
   );
