@@ -1,24 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 function GaleriKegiatan() {
-  const activities = [
-    {
-      imgSrc: 'image1.jpg',
-      caption: 'Kegiatan Bersih-Bersih',
-      description: 'Warga Kelurahan Oeba melakukan kegiatan bersih-bersih lingkungan bersama untuk menjaga kebersihan dan keindahan lingkungan.',
-    },
-    {
-      imgSrc: 'image2.jpg',
-      caption: 'Penyuluhan Kesehatan',
-      description: 'Penyuluhan kesehatan mengenai pentingnya menjaga kesehatan di masa pandemi COVID-19.',
-    },
-    {
-      imgSrc: 'image3.jpg',
-      caption: 'Lomba Hari Kemerdekaan',
-      description: 'Berbagai lomba diadakan dalam rangka memperingati Hari Kemerdekaan Indonesia di Kelurahan Oeba.',
-    },
-    // Tambahkan lebih banyak kegiatan sesuai kebutuhan
-  ];
+  const [activities, setActivities] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchKegiatan = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/v1/kegiatan');
+        setActivities(response.data);
+        setLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
+      }
+    };
+
+    fetchKegiatan();
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error loading activities: {error}</p>;
 
   return (
     <div className="container mt-5">
@@ -27,12 +31,13 @@ function GaleriKegiatan() {
         {activities.map((activity, index) => (
           <div key={index} className="col-md-4 mb-4">
             <div className="card h-100">
-              <img src={activity.imgSrc} className="card-img-top" alt={activity.caption} />
+              <img src={activity.foto_kegiatan} className="card-img-top" alt={activity.nama_kegiatan} />
               <div className="card-body d-flex flex-column">
-                <h5 className="card-title">{activity.caption}</h5>
+                <h5 className="card-title">{activity.nama_kegiatan}</h5>
                 <p className="card-text flex-grow-1" style={{ minHeight: '70px' }}>
-                  {activity.description}
+                  {activity.deskripsi_kegiatan}
                 </p>
+                <p className="card-text"><small className="text-muted">{new Date(activity.tanggal_kegiatan).toLocaleDateString()}</small></p>
               </div>
             </div>
           </div>

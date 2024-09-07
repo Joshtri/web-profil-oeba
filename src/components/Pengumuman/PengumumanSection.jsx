@@ -1,21 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 function PengumumanSection() {
-  const announcements = [
-    {
-      title: 'Pengumuman Rapat Warga',
-      date: '01 September 2024',
-      description: 'Rapat warga akan diadakan pada tanggal 5 September 2024 untuk membahas program kerja kelurahan.',
-      pdfLink: '/files/rapat-warga-sep2024.pdf',
-    },
-    {
-      title: 'Pengumuman Lomba Kebersihan',
-      date: '15 Agustus 2024',
-      description: 'Lomba kebersihan antar RT akan diadakan pada tanggal 17 Agustus 2024. Berikut adalah ketentuannya.',
-      pdfLink: '/files/lomba-kebersihan-agustus2024.pdf',
-    },
-    // Tambahkan lebih banyak pengumuman sesuai kebutuhan
-  ];
+  const [announcements, setAnnouncements] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchPengumuman = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/v1/pengumuman');
+        setAnnouncements(response.data);
+        setLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
+      }
+    };
+
+    fetchPengumuman();
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error loading announcements: {error}</p>;
 
   return (
     <div className="container mt-5">
@@ -25,12 +32,19 @@ function PengumumanSection() {
           <div key={index} className="col-md-4 mb-4">
             <div className="card h-100">
               <div className="card-body d-flex flex-column">
-                <h5 className="card-title">{announcement.title}</h5>
-                <p className="card-subtitle text-muted mb-2">{announcement.date}</p>
-                <p className="card-text flex-grow-1">{announcement.description}</p>
-                <a href={announcement.pdfLink} className="btn btn-primary mt-auto" target="_blank" rel="noopener noreferrer">
-                  Baca / Unduh PDF
-                </a>
+                <h5 className="card-title">{announcement.judul_pengumuman}</h5>
+                <p className="card-subtitle text-muted mb-2">{new Date(announcement.tanggal_pengumuman).toLocaleDateString()}</p>
+                <p className="card-text flex-grow-1">{announcement.deskripsi_pengumuman}</p>
+                {announcement.berkas_pengumuman_pdf && (
+                  <a
+                    href={announcement.berkas_pengumuman_pdf}
+                    className="btn btn-primary mt-auto"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Baca / Unduh PDF
+                  </a>
+                )}
               </div>
             </div>
           </div>

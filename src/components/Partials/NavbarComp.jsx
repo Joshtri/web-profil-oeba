@@ -1,23 +1,40 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
+import { Link as ScrollLink, scroller } from 'react-scroll';
 import './Navbar.css';
 
 import kotaKupangLogo from '../../assets/kota_kupang_logo.webp';
 
 function NavbarComp() {
+  const location = useLocation(); // Get the current location
+  const navigate = useNavigate(); // Use navigate for programmatic navigation
+
+  const handleScrollOrNavigate = (sectionId) => {
+    if (location.pathname === '/') {
+      // If already on MainPage, scroll to section
+      scroller.scrollTo(sectionId, {
+        smooth: true,
+        duration: 500,
+      });
+    } else {
+      // If on another page, navigate to MainPage and scroll after render
+      navigate('/', { state: { scrollTo: sectionId } });
+    }
+  };
+
   return (
     <>
       {/* First Navbar */}
       <nav className="navbar navbar-expand-lg px-md-5" style={{ backgroundColor: '#061952' }}>
         <div className="container-fluid mt-2 mb-2 d-flex justify-content-between align-items-center">
-          <Link to="/" className="navbar-brand">
+          <RouterLink to="/" className="navbar-brand">
             <img
               src={kotaKupangLogo}
               alt="Logo"
               className="rounded float-start"
               style={{ maxHeight: '100px' }}
             />
-          </Link>
+          </RouterLink>
           <span className="text-white fs-5">Kelurahan Oeba</span>
         </div>
       </nav>
@@ -40,9 +57,9 @@ function NavbarComp() {
           <div className="collapse navbar-collapse" id="navbarMenu">
             <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link to="/" className="nav-link active">
+                <RouterLink to="/" className="nav-link active">
                   Beranda
-                </Link>
+                </RouterLink>
               </li>
               <li className="nav-item dropdown">
                 <a
@@ -57,22 +74,14 @@ function NavbarComp() {
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdownProfile">
                   <li>
-                    <Link to="/sejarah_kelurahan" className="dropdown-item">
-                      <img
-                        src="https://img.icons8.com/ios/16/000000/history-book.png"
-                        alt="History"
-                      />
+                    <RouterLink to="/sejarah_kelurahan" className="dropdown-item">
                       Sejarah Kelurahan
-                    </Link>
+                    </RouterLink>
                   </li>
                   <li>
-                    <Link to="/#sectionFasilitas" className="dropdown-item">
-                      <img
-                        src="https://img.icons8.com/external-kmg-design-detailed-outline-kmg-design/16/000000/external-potential-business-strategy-kmg-design-detailed-outline-kmg-design.png"
-                        alt="Facilities"
-                      />
+                    <span onClick={() => handleScrollOrNavigate('sectionFasilitas')} className="dropdown-item" style={{ cursor: 'pointer' }}>
                       Potensi & Fasilitas
-                    </Link>
+                    </span>
                   </li>
                 </ul>
               </li>
@@ -89,29 +98,21 @@ function NavbarComp() {
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdownGov">
                   <li>
-                    <Link to="/struktur_organisasi" className="dropdown-item">
-                      <img
-                        src="https://img.icons8.com/pastel-glyph/16/000000/parallel-tasks.png"
-                        alt="Structure"
-                      />
+                    <RouterLink to="/struktur_organisasi" className="dropdown-item">
                       Struktur Pemerintahan
-                    </Link>
+                    </RouterLink>
                   </li>
                   <li>
-                    <Link to="/#Sectionalurpelayanan" className="dropdown-item">
-                      <img
-                        src="https://img.icons8.com/pastel-glyph/16/000000/parallel-tasks.png"
-                        alt="Services"
-                      />
+                    <span onClick={() => handleScrollOrNavigate('Sectionalurpelayanan')} className="dropdown-item" style={{ cursor: 'pointer' }}>
                       Alur Pelayanan
-                    </Link>
+                    </span>
                   </li>
                 </ul>
               </li>
               <li className="nav-item">
-                <Link to="/maps" className="nav-link">
+                <span onClick={() => handleScrollOrNavigate('mapCard')} className="nav-link" style={{ cursor: 'pointer' }}>
                   Peta
-                </Link>
+                </span>
               </li>
               <li className="nav-item dropdown">
                 <a
@@ -126,15 +127,18 @@ function NavbarComp() {
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdownOther">
                   <li>
-                    <Link to="/pengumuman" className="dropdown-item">
-                      Pengumuman & Artikel
-                    </Link>
-
-                    <Link to="/galeri_kegiatan" className="dropdown-item">
+                    <RouterLink to="/pengumuman" className="dropdown-item">
+                      Pengumuman
+                    </RouterLink>
+                    <RouterLink to="/galeri_kegiatan" className="dropdown-item">
                       Galeri Kelurahan
-                      
-                    </Link>
+                    </RouterLink>
 
+                    <li>
+                      <span onClick={() => handleScrollOrNavigate('sectionBerita')} className="dropdown-item" style={{ cursor: 'pointer' }}>
+                        Berita Terkini
+                      </span>
+                    </li>
                   </li>
                 </ul>
               </li>
@@ -142,65 +146,15 @@ function NavbarComp() {
           </div>
         </div>
       </nav>
-
-      {/* Marquee Section */}
-      <div className="card mb-1 shadow-sm">
-        <div className="card-body">
-          <marquee
-            onMouseOver={(e) => e.target.stop()}
-            onMouseOut={(e) => e.target.start()}
-          >
-            <span className="small text-muted">
-              Sekilas Info | Kantor Kelurahan Oeba membuka pelayanan publik pada
-              hari Senin - Kamis pukul 07.30 - 16:00 WITA & Jumat pukul 07.30 -
-              16.30 WITA
-              <Link to="#" className="text-primary" title="Baca Selengkapnya">
-                {' '}
-                -- selengkapnya...
-              </Link>
-            </span>
+      <div class="card mb-1 z-index-1">
+          <marquee onmouseover="this.stop()" onmouseout="this.start()" class="shadow shadow-sm">
+              <div class="teks_berjalan">
+                  <span class="teks small">Sekilas Info | Kantor Kelurahan Oeba membuka pelayanan publik pada hari Senin -
+                      Kamis pukul 07.30 - 16:00 WITA & Jumat pukul 07.30 - 16.30 WITA <a href="#" rel="noopener noreferrer"
+                          title="Baca Selengkapnya">-- selengkapnya...</a>
+                  </span>
+              </div>
           </marquee>
-        </div>
-      </div>
-
-      {/* Modal Section */}
-      <div
-        className="modal fade"
-        id="modalKonfirmasiPortalHukum"
-        data-bs-backdrop="static"
-        data-bs-keyboard="false"
-        tabIndex="-1"
-        aria-labelledby="staticBackdropLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="staticBackdropLabel">
-                Modal title
-              </h5>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div className="modal-body">...</div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="button" className="btn btn-primary">
-                Understood
-              </button>
-            </div>
-          </div>
-        </div>
       </div>
     </>
   );

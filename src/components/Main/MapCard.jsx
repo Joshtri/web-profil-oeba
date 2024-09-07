@@ -7,7 +7,7 @@ function MapCard() {
   return (
     <div className="card mb-5 mt-5 pb-5 wow animate__animated animate__backInUp" data-wow-delay="1s">
       <div className="card-header">
-        <h1 className="text-center text-uppercase font-title-costum animate__animated animate__backInUp animate__delay-1s">
+        <h1 className="text-center text-uppercase font-title-costum animate__animated animate__backInUp animate__delay-1s" id='mapCard'>
           Peta Wilayah
         </h1>
       </div>
